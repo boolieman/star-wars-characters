@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadPeople } from '../actions';
 import Listing from '../components/Listing';
@@ -27,11 +28,11 @@ export default connect(mapStateToProps, { loadPeople })(App);
 
 App.propTypes = {
   loadPeople: PropTypes.func.isRequired,
-  people: {
+  people: PropTypes.shape({
     isFetching: PropTypes.boolean,
     next: PropTypes.string,
     people: PropTypes.array,
-  },
+  }),
 };
 
 App.defaultProps = {

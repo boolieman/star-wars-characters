@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Waypoint from 'react-waypoint';
 
 export default class Listing extends Component {
@@ -39,7 +40,7 @@ export default class Listing extends Component {
 
 Listing.propTypes = {
   loadPeople: PropTypes.func.isRequired,
-  people: [{
+  people: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     height: PropTypes.string,
     mass: PropTypes.string,
@@ -47,7 +48,7 @@ Listing.propTypes = {
     eye_color: PropTypes.string,
     birth_year: PropTypes.string,
     gender: PropTypes.string,
-  }],
+  })),
 };
 
 Listing.defaultProps = {

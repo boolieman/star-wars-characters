@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import routes from '../routes';
@@ -10,16 +11,16 @@ const Root = ({ store, history }) => (
 );
 
 Root.propTypes = {
-  store: {
-    people: {
+  store: PropTypes.shape({
+    people: PropTypes.shape({
       isFetching: PropTypes.boolean,
       next: PropTypes.string,
       people: PropTypes.array,
-    },
-  },
+    }),
+  }),
   // keeps throwing airBNB error here but not sure
   // how to get around this one....
-  history: {},
+  history: PropTypes.object,
 };
 
 Root.defaultProps = {
